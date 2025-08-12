@@ -14,6 +14,9 @@ app.use(bodyParser.json());
 app.options("*", cors());
 // Switch to Google Generative AI API (simpler than Vertex AI)
 const geminiApiKey = process.env.GEMINI_API_KEY;
+if (!geminiApiKey) {
+  return res.status(401).json({ error: "API key missing" });
+}
 const port = process.env.PORT || 3001;
 
 // Use Google Generative AI API instead of Vertex AI
