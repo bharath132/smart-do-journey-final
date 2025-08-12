@@ -3,11 +3,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 // Remove Google Auth dependency - switching to Generative AI API with API key
-  
-const app = express();
-app.use(cors());
-app.use(bodyParser.json());
 
+const app = express();
+app.use(cors({
+  origin: "*", // Or your frontend domain
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+app.use(bodyParser.json());
+app.options("*", cors());
 // Switch to Google Generative AI API (simpler than Vertex AI)
 const geminiApiKey = process.env.GEMINI_API_KEY;
 const port = process.env.PORT || 3001;
