@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 // Remove Google Auth dependency - switching to Generative AI API with API key
-
+  
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());

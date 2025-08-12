@@ -718,7 +718,7 @@ const TodoApp = () => {
                     setIsLoadingAI(true);
                     try {
                       const response = await axios.post(
-                        "http://localhost:3001/api/gemini-suggest",
+                        "https://smart-do-journey-final-5yhy-px0s5a8md-bharath132s-projects.vercel.app/api/gemini-suggest",
                         { title: newTask }
                       );
                       console.log("AI Suggestion Response:", response.data);
